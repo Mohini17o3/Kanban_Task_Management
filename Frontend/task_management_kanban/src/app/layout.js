@@ -1,9 +1,9 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import { Suspense } from "react";
 import Loading from "./loading";
-import AnimatedLayout from "./AnimatedLayout";
+// import AnimatedLayout from "./AnimatedLayout";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,9 +33,9 @@ export default function RootLayout({ children }) {
       >
 
    <Suspense fallback={<Loading />}>
-     <AnimatedLayout>
+     {/* <AnimatedLayout> */}
       {children}  
-     </AnimatedLayout>
+     {/* </AnimatedLayout> */}
 
      </Suspense>
 

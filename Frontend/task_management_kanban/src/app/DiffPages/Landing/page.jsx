@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent} from "@/components/ui/card";
-import { useState } from "react";
+import { useState  , useEffect} from "react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger , DialogClose , DialogFooter } from "@/components/ui/dialog";
 import { DialogHeader } from "@/components/ui/dialog";
 import Link from "next/link";
 import Navbar from "@/app/components/Navbar";
-
+import { usePathname } from "next/navigation";
 
 const Landing = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +20,9 @@ const Landing = () => {
 
   const [dialog , setDialog] = useState(false);
   const [error , setError] = useState("");
+  const pathname = usePathname();
+  
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -61,7 +64,9 @@ const Landing = () => {
   };
 
   return (
-    <>
+    <>    
+  {pathname === "/DiffPages/Landing" && <Navbar />}
+  
     <h1 className="text-3xl mt-6 flex items-center justify-center">Create tasks here </h1>
     <Card className="max-w-md mt-8 mx-auto p-4">
      

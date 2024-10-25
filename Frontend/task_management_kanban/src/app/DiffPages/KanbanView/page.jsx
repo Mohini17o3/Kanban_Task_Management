@@ -15,6 +15,15 @@ import Landing from "../Landing/page";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import DeleteButton from  "../../deleteButton" ;
 import Navbar from "@/app/components/Navbar";
+import { useDrag } from "react-dnd";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+
+// defining task card type for dragging
+ const TaskCardType =  {
+  TASK : 'task' 
+}
+
 
 function KanbanView() {
 
@@ -93,30 +102,41 @@ function KanbanView() {
     
 
   }
-
-  const renderTasks = (status , priority) => {
-    return tasks
-      .filter((task) => task.status === status && task.priority === priority)
-      .map((task) => (
-
-        <div key={task.id} className="m-2 p-2 border-2 overflow-hidden bg-gray-600 rounded-md ">
-        
-        <div className="flex justify-between items-start h-full">
-        <div className="font-semibold break-words mb-2">
-        {task.title}
-        <p className="break-words mb-6 text-customPink"> {task.description} </p>
-        </div>
-        <DeleteButton onClick={() => handleClick(task.id)} />
-        </div>
-
-
-        </div>
-      ));
-  };
+  const TaskCard = ({task}) => { const [{isDragging} , drag] = useDrag(() => ( {
+    type : TaskCardType.TASK , 
+    item : { id :task.id} , 
+    collect : (monitor)=>({
+      isDragging : !!monitor.isDragging()
+    })
+  } ) ) ;
 
   return (
+    <div
+      key={task.id}
+      ref={drag}
+      className={`m-2 p-2 border-2 overflow-hidden bg-gray-600 rounded-md ${isDragging ? 'opacity-50' : ''}`}
+    >
+      <div className="flex justify-between items-start h-full">
+        <div className="font-semibold break-words mb-2">
+          {task.title}
+          <p className="break-words mb-6 text-customPink">{task.description}</p>
+        </div>
+        <DeleteButton onClick={() => handleClick(task.id)} />
+      </div>
+    </div>
+  );
+};
 
-    <>
+const renderTasks = (status, priority) => {
+  return tasks
+    .filter((task) => task.status === status && task.priority === priority)
+    .map((task) => <TaskCard key={task.id} task={task} />);
+};
+
+
+  return (
+    <DndProvider backend={HTML5Backend}>
+    
     <Navbar />
       {tasks.length > 0 ? (
 
@@ -177,7 +197,9 @@ function KanbanView() {
 
           </TableBody>
         </Table>
+       
         </>
+      
       ) : (
         <div  className="flex flex-col items-center gap-4 justify-center">
         <p>No tasks available</p>
@@ -197,7 +219,9 @@ function KanbanView() {
 
            
         </div>      )}
-    </>
+    
+  </DndProvider>  
+
   );
 }
 

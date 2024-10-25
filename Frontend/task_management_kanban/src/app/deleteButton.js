@@ -4,7 +4,7 @@ return (
 <button onClick={onClick}>
 <svg xmlns="http://www.w3.org/2000/svg" 
 viewBox="0 0 448 512"
-height= "24px"
+height= "15px"
 fill="#e7a7eb"
  >
   
