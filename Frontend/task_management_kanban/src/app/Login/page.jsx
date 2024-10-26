@@ -4,6 +4,7 @@ import {useState} from "react" ;
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar";
+import Video from "../components/Video";
 
 
 function Login () {
@@ -66,7 +67,9 @@ function Login () {
      <p className= "flex items-center justify-center text-xl text-yellow-200">Glad you're here</p>
     <div className="grid md:grid-cols-2">
         <div className="flex items-center justify-center m-6">
-            Video to be added 
+    
+    <Video />
+       
         </div>
 
         <div className="flex flex-col  items-center justify-center m-6">

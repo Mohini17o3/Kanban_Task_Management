@@ -4,6 +4,7 @@ import Link from "next/link";
 import {useState} from "react" ; 
 import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar";
+import Video from "../components/Video";
 
 
 
@@ -59,7 +60,7 @@ function SignUp () {
      
     <div className="grid m-4 md:grid-cols-2">
         <div className="flex items-center justify-center md:m-6">
-            Video to be added 
+         <Video/>
         </div>  
 
         <div className="flex flex-col  items-center justify-center m-6">

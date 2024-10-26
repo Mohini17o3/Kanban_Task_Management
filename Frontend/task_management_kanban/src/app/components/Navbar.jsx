@@ -70,7 +70,7 @@ function Navbar() {
 <Link href="/Login">         
      <button onClick={handleClick} className="bg-gray-600 hover:text-gray-700 hover:bg-white text-customPink p-2 ml-24 rounded ">
           Sign In 
-         </button></Link>  
+    </button></Link>  
 
 
 }

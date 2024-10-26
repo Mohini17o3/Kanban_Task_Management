@@ -129,6 +129,38 @@ app.post('/api/tasks' , authmiddleware,  async(req , res) =>{
     
 });
 
+
+app.patch('/api/update', authmiddleware, async (req, res) => {
+    const { id, status, priority } = req.body; 
+
+
+    if (!id || !status || !priority) {
+        return res.status(400).json({ message: "these required fields are missing" });
+      }
+  
+    try {
+
+        const updatedTask = await prisma.task.update({
+          where: { id },  
+          data: {
+            status,        
+            priority,      
+          },
+        });
+    
+        if (!updatedTask) {
+          return res.status(404).json({ message: 'Task not found' });
+        }
+    
+        res.status(200).json(updatedTask);
+      } catch (error) {
+        console.error('Error updating task:', error);
+        res.status(500).json({ message: 'Error updating task', error });
+      }
+    });
+
+
+
 app.delete('/api/delete' , authmiddleware , async(req , res) => {
 
     const {id} = req.body ;
