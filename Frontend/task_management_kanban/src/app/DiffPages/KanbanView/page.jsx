@@ -38,8 +38,10 @@ const [isTouchDevice, setIsTouchDevice] = useState(false);
 
 // for touch events in phones
     const checkTouchDevice = ()=> {
-      const isTouch = 'ontouchStart' in window || navigator.maxTouchPoints>0;
-      setIsTouchDevice(isTouch);
+      if (typeof window !== 'undefined') {  
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        setIsTouchDevice(isTouch);
+      }
     }
   
   
