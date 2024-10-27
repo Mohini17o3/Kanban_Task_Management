@@ -56,6 +56,8 @@ module.exports = {
 			  customBrown4 :'#DBD8E3' ,	
 			  customHeading : '#A3A3A3' ,
 			  customPink : '#e7a7eb' ,
+			  customPink2 : '#D8BFD8',
+			  customPink3 : '#9b4db8',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

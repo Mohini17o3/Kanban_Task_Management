@@ -5,6 +5,8 @@ import {useState} from "react" ;
 import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar";
 import Video from "../components/Video";
+import { Github } from "lucide-react";
+import { Mail } from "lucide-react";
 
 
 
@@ -54,17 +56,23 @@ function SignUp () {
     return (
     <>  
     <Navbar />
-     <div className="flex flex-col m-8 items-center justify-center font-bold md:text-6xl text-4xl text-customHeading"> Organise Your Tasks
-     
+     <div className="flex flex-col mt-8 mb-20 items-center justify-center font-bold md:text-6xl text-4xl text-customPink">  
+     <span className="text-customPink3" style={{ WebkitTextStroke: '1px #FFFFFF' }}>
+    Organise Your Tasks
+
+  </span>
+  <p className="text-xl flex justify-center mt-2">With  Kanban Board</p>
       </div>  
      
     <div className="grid m-4 md:grid-cols-2">
         <div className="flex items-center justify-center md:m-6">
-         <Video/>
+
+<img  className="rounded-full h-66 w-66 opacity-70 border-2"  src="Girl_study4.jpg" alt="girl_study_image"/>
+        
         </div>  
 
         <div className="flex flex-col  items-center justify-center m-6">
-        <form className="flex flex-col bg-customBrown2 items-center justify-center mt-7 rounded p-4 border drop-shadow-lg" onSubmit={handleSubmit}>
+        <form className="flex flex-col items-center justify-center mt-7 rounded p-4 border drop-shadow-lg" onSubmit={handleSubmit}>
 
                 <div className="flex flex-row m-4">
                 <label className="p-2 text-xl " htmlFor="name">Name  </label>
@@ -81,13 +89,13 @@ function SignUp () {
                 <input className="text-gray-600 bg-gray-300 focus:bg-white  rounded mx-2 p-2 border focus:border-purple-500  focus:outline-none" type="password" id= "password" placeholder="create a strong password" value={password} onChange={(e)=>setPassword(e.target.value)} required />
                 </div>
            
-             <input className="cursor-pointer px-4 py-2 m-2 bg-white text-black hover:bg-gray-600 hover:text-white rounded-md"  type="submit" value="Sign Up" />
+             <input className="cursor-pointer px-4 py-2 m-2 bg-gray-600 hover:text-gray-700 hover:bg-white text-customPink rounded-md"  type="submit" value="Sign Up" /> 
              
              {error && <p className="flex items-center justify-center m-8">{error}</p>}
             </form>
 
          <p className="m-4">Already a user ? 
-         <Link className="cursor-pointer hover:underline" href={"/Login"}>
+         <Link className="cursor-pointer hover:underline ml-1" href={"/Login"}>
             Login here
           </Link>
           </p>  
@@ -96,6 +104,33 @@ function SignUp () {
      
         </div>
 
+        <section className="bg-customPink3 opacity-70 text-white text-4xl flex items-center justify-center mb-8 py-20">
+       
+         A sneek peek 
+         </section>
+
+        <section className="py-12 flex items-center justify-center">
+        <div className="w-full max-w-2xl h-96">
+        <Video/>
+        </div>
+        
+        </section>
+
+<footer className="bg-customBrown2 text-white py-2 px-2 ">
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between ">
+        
+                <div className="mb-4 ml-6 md:mb-0 bg-customBrown2 rounded-full border-2 hover:bg-customBrown3">
+                    <a href="https://github.com/Mohini17o3" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 text-lg">
+                       <Github className="h-12 w-12" />
+                    </a>
+                </div>
+
+                <div className="mb-4 ml-6 md:mb-0 bg-customBrown2 rounded-full border-2 hover:bg-customBrown3">                    <a href="mailto:upretimohini@gmail.com" className="hover:text-purple-400 text-lg">
+                    <Mail className="h-12 w-12"/>
+                    </a>
+                </div>
+            </div>
+        </footer>
 
 </>
 

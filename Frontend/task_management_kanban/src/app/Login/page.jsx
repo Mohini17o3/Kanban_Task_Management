@@ -4,7 +4,6 @@ import {useState} from "react" ;
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar";
-import Video from "../components/Video";
 
 
 function Login () {
@@ -62,19 +61,18 @@ function Login () {
     return (
         <>
 <Navbar />
-     <div className="flex flex-col m-8 items-center justify-center font-bold text-6xl text-customHeading"> Organise Your Tasks
+     <div className="flex flex-col m-8 items-center justify-center font-bold text-6xl text-customPink"> Organise Your Tasks
       </div>  
      <p className= "flex items-center justify-center text-xl text-yellow-200">Glad you're here</p>
     <div className="grid md:grid-cols-2">
         <div className="flex items-center justify-center m-6">
     
-    <Video />
-       
+       <img  className="rounded-full h-66 w-66 opacity-70 border-2" src="Girl_study4.jpg" alt="girl_study_image" />
         </div>
 
         <div className="flex flex-col  items-center justify-center m-6">
 
-        <form className="flex flex-col items-center justify-center mt-7 rounded p-4 border drop-shadow-lg bg-customBrown2" onSubmit={handleSubmit}>
+        <form className="flex flex-col items-center justify-center mt-7 rounded p-4 border drop-shadow-lg" onSubmit={handleSubmit}>
 
 
                 <div className="flex flex-row m-4">
