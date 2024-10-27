@@ -297,8 +297,24 @@ const [isTouchDevice, setIsTouchDevice] = useState(false);
           </Table>
         </>
       ) : (
-        <p>No tasks found.</p>
-      )}
+        <div  className="flex flex-col items-center gap-4 justify-center">
+        <p>No tasks available</p>
+        <Drawer>
+          <DrawerTrigger className="bg-gray-500 text-customPink p-2 rounded-md">
+             Add Tasks 
+          </DrawerTrigger>
+          <DrawerContent>
+          <DialogTitle>
+            Task Creation form 
+          </DialogTitle>
+            <div className="mx-auto w-full max-w-sm">
+          <Landing />
+            </div>
+          </DrawerContent>
+        </Drawer>
+
+           
+        </div>         )}
     </DndProvider>
   );
 }
