@@ -67,7 +67,7 @@ function SignUp () {
     <div className="grid m-4 md:grid-cols-2">
         <div className="flex items-center justify-center md:m-6">
 
-<img  className="rounded-full h-66 w-66 opacity-70 border-2"  src="/Girl_study4.jpg" alt="girl_study_image"/>
+<img  className="rounded-full h-66 w-66 opacity-70 border-2"  src="/girl_study4.jpg" alt="girl_study_image"/>
         
         </div>  
 
