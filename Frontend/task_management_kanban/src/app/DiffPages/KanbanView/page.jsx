@@ -36,7 +36,7 @@ function KanbanView() {
       }
 
       try {
-        const response = await fetch('http://localhost:5000/api/tasks', {
+        const response = await fetch('https://kanban-task-management-zu9y.onrender.com/api/tasks', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -68,7 +68,7 @@ function KanbanView() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/delete', {
+      const response = await fetch('https://kanban-task-management-zu9y.onrender.com/api/delete', {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -140,7 +140,7 @@ function KanbanView() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/update', {
+      const response = await fetch('https://kanban-task-management-zu9y.onrender.com/api/update', {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
