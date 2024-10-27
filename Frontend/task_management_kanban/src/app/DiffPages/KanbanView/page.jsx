@@ -18,6 +18,8 @@ import Navbar from "@/app/components/Navbar";
 import { useDrag, useDrop } from "react-dnd";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from 'react-dnd-touch-backend';
+
 
 // Defining task card type for dragging
 const TaskCardType = {
@@ -27,7 +29,22 @@ const TaskCardType = {
 function KanbanView() {
   const [tasks, setTasks] = useState([]);
 
+// for touch events in phones
+
+const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+
   useEffect(() => {
+
+// for touch events in phones
+    const checkTouchDevice = ()=> {
+      const isTouch = 'ontouchStart' in window || navigator.maxTouchPoints>0;
+      setIsTouchDevice(isTouch);
+    }
+  
+  
+    checkTouchDevice() ;
+
     const fetchTasks = async () => {
       const token = localStorage.getItem("token");
       if (!token) {
@@ -104,7 +121,7 @@ function KanbanView() {
         ref={drag}
         className={`m-2 p-2 border-2 overflow-hidden bg-gray-600 rounded-md ${isDragging ? 'opacity-50' : ''}`}
       >
-        <div className="flex justify-between items-start h-full">
+        <div className="flex justify-between items-start md:h-full">
           <div className="font-semibold break-words mb-2">
             {task.title}
             <p className="break-words mb-6 text-customPink">{task.description}</p>
@@ -182,7 +199,7 @@ function KanbanView() {
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    <DndProvider  backend={isTouchDevice ? TouchBackend({ enableMouseEvents: true }) : HTML5Backend}>
       <Navbar />
       {tasks.length > 0 ? (
         <>
@@ -203,16 +220,16 @@ function KanbanView() {
           <Table className="mt-6 mb-2 h-screen p-2">
             <TableHeader>
               <TableRow className="hover:bg-transparent">
-                <TableHead className="text-2xl text-customPink border-2 w-1/12">Progress</TableHead>
-                <TableHead className="text-2xl text-customPink border-2 w-1/4">To-Do</TableHead>
-                <TableHead className="text-2xl text-customPink border-2 w-1/4">In-progress</TableHead>
-                <TableHead className="text-2xl text-customPink border-2 w-1/4">Completed</TableHead>
+                <TableHead className="md:text-2xl text-customPink border-2 md:w-1/12">Progress</TableHead>
+                <TableHead className="md:text-2xl text-customPink border-2 md:w-1/4">To-Do</TableHead>
+                <TableHead className="md:text-2xl text-customPink border-2 md:w-1/4">In-progress</TableHead>
+                <TableHead className="md:text-2xl text-customPink border-2 md:w-1/4">Completed</TableHead>
               </TableRow>
             </TableHeader>
 
             <TableBody>
               <TableRow className="hover:bg-transparent">
-                <TableHead className="text-2xl font-bold text-customPink border-2">Low</TableHead>
+                <TableHead className="md:text-2xl font-bold text-customPink border-2">Low</TableHead>
 
                 <TableCell className="mb-4">
                   <DragBoard statusColumn={"To Do"} priorityLevel={'Low'}>
@@ -234,7 +251,7 @@ function KanbanView() {
               </TableRow>
 
               <TableRow className="hover:bg-transparent">
-                <TableHead className="text-2xl font-bold text-customPink border-2">Medium</TableHead>
+                <TableHead className="md:text-2xl font-bold text-customPink border-2">Medium</TableHead>
 
                 <TableCell className="mb-4">
                   <DragBoard statusColumn={"To Do"} priorityLevel={'Medium'}>
@@ -256,7 +273,7 @@ function KanbanView() {
               </TableRow>
 
               <TableRow className="hover:bg-transparent">
-                <TableHead className="text-2xl font-bold text-customPink border-2">High</TableHead>
+                <TableHead className="md:text-2xl font-bold text-customPink border-2">High</TableHead>
 
                 <TableCell className="mb-4">
                   <DragBoard statusColumn={"To Do"} priorityLevel={'High'}>

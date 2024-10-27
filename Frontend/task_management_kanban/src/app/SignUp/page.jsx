@@ -56,15 +56,15 @@ function SignUp () {
     return (
     <>  
     <Navbar />
-     <div className="flex flex-col mt-8 mb-20 items-center justify-center font-bold md:text-6xl text-4xl text-customPink">  
+     <div className="flex flex-col md:mt-8 mt-6 md:mb-20 items-center justify-center font-bold md:text-6xl text-4xl text-customPink">  
      <span className="text-customPink3" style={{ WebkitTextStroke: '1px #FFFFFF' }}>
     Organise Your Tasks
 
   </span>
-  <p className="text-xl flex justify-center mt-2">With  Kanban Board</p>
+  <p className="text-xl flex items-center justify-center mt-2">With  Kanban Board</p>
       </div>  
      
-    <div className="grid m-4 md:grid-cols-2">
+    <div className="grid grid-cols-1 md:m-4 md:grid-cols-2">
         <div className="flex items-center justify-center md:m-6">
 
 <img  className="rounded-full h-66 w-66 opacity-70 border-2"  src="/girl_study4.jpg" alt="girl_study_image"/>
@@ -104,7 +104,7 @@ function SignUp () {
      
         </div>
 
-        <section className="bg-customPink3 opacity-70 text-white text-4xl flex items-center justify-center mb-8 py-20">    
+        <section className="bg-customPink3 opacity-70 text-white md:text-4xl flex items-center justify-center md:mb-8 md:py-20">    
          A sneek peek 
          </section>
 
@@ -116,16 +116,16 @@ function SignUp () {
         </section>
 
 <footer className="bg-customBrown2 text-white py-2 px-2 ">
-            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between ">
+            <div className="container mx-auto flex flex-row items-center justify-between ">
         
-                <div className="mb-4 ml-6 md:mb-0 bg-customBrown2 rounded-full border-2 hover:bg-customBrown3">
+                <div className="md:mb-4 md:ml-6 md:mb-0 bg-customBrown2 rounded-full border-2 hover:bg-customBrown3">
                     <a href="https://github.com/Mohini17o3" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 text-lg">
-                       <Github className="h-12 w-12" />
+                       <Github className="md:h-12 md:w-12" />
                     </a>
                 </div>
 
-                <div className="mb-4 ml-6 md:mb-0 bg-customBrown2 rounded-full border-2 hover:bg-customBrown3">                    <a href="mailto:upretimohini@gmail.com" className="hover:text-purple-400 text-lg">
-                    <Mail className="h-12 w-12"/>
+                <div className="md:mb-4 md:ml-6 md:mb-0 bg-customBrown2 rounded-full border-2 hover:bg-customBrown3">                    <a href="mailto:upretimohini@gmail.com" className="hover:text-purple-400 text-lg">
+                    <Mail className="md:h-12 md:w-12"/>
                     </a>
                 </div>
             </div>

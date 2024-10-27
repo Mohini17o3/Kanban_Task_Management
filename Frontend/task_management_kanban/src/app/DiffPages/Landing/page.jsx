@@ -68,7 +68,7 @@ const Landing = () => {
   {pathname === "/DiffPages/Landing" && <Navbar />}
   
     <h1 className="text-3xl mt-6 flex items-center justify-center">Create tasks here </h1>
-    <Card className="max-w-md mt-8 mx-auto p-4">
+    <Card className="max-w-sm mt-8 mx-auto p-4">
      
       <CardContent>
         <form onSubmit={handleSubmit}>
