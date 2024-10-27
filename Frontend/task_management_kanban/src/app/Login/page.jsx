@@ -63,11 +63,11 @@ function Login () {
 <Navbar />
      <div className="flex flex-col m-8 items-center justify-center font-bold text-6xl text-customPink"> Organise Your Tasks
       </div>  
-     <p className= "flex items-center justify-center text-xl text-yellow-200">Glad you're here</p>
+     <p className= "flex items-center justify-center text-xl text-yellow-200">Glad you are here</p>
     <div className="grid md:grid-cols-2">
         <div className="flex items-center justify-center m-6">
     
-       <img  className="rounded-full h-66 w-66 opacity-70 border-2" src="Girl_study4.jpg" alt="girl_study_image" />
+       <img  className="rounded-full h-66 w-66 opacity-70 border-2" src={`${process.env.PUBLIC_URL}/Girl_study4.jpg`}alt="girl_study_image" />
         </div>
 
         <div className="flex flex-col  items-center justify-center m-6">
@@ -105,7 +105,7 @@ function Login () {
              
              {error && <p className="flex items-center justify-center m-12">{error}</p>}
             </form>
-            <p className="mt-6" >Don't have an account?<Link className="mt-6 hover:underline" href="/SignUp"> Sign Up</Link></p> 
+            <p className="mt-6" >Do not have an account?<Link className="mt-6 hover:underline" href="/SignUp"> Sign Up</Link></p> 
 
         </div>
 
