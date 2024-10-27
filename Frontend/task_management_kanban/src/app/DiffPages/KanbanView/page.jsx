@@ -37,15 +37,10 @@ const [isTouchDevice, setIsTouchDevice] = useState(false);
   useEffect(() => {
 
 // for touch events in phones
-    const checkTouchDevice = ()=> {
-      if (typeof window !== 'undefined') {  
-        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        setIsTouchDevice(isTouch);
-      }
-    }
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+setIsTouchDevice(isMobile);
   
   
-    checkTouchDevice() ;
 
     const fetchTasks = async () => {
       const token = localStorage.getItem("token");
