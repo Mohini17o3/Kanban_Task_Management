@@ -67,7 +67,7 @@ function Login () {
     <div className="grid md:grid-cols-2">
         <div className="flex items-center justify-center m-6">
     
-       <img  className="rounded-full h-66 w-66 opacity-70 border-2" src={`${process.env.PUBLIC_URL}/Girl_study4.jpg`}alt="girl_study_image" />
+       <img  className="rounded-full h-66 w-66 opacity-70 border-2" src="/Girl_study4.jpg" alt="girl_study_image" />
         </div>
 
         <div className="flex flex-col  items-center justify-center m-6">

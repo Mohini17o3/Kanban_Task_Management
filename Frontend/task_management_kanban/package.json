@@ -1,15 +1,12 @@
 {
   "name": "task_management_kanban",
   "version": "0.1.0",
-  "homepage": "https://Mohini17o3.github.io/Kanban_Task_Management/Frontend/task_management_kanban",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "lint": "next lint"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",
