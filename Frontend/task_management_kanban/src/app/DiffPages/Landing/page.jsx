@@ -34,6 +34,7 @@ const Landing = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
     const token  = localStorage.getItem("token");
 
     try { 
